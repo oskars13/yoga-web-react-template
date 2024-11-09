@@ -13,10 +13,22 @@
   font-family: var(--font-raleway);
 }
 
-.menu {
-  display: none;
+ul, ol, li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
 }
 
-.show-flex {
-  display:block;
+html{
+  color-scheme: dark light;
+}
+
+.hide {
+  display: none
+}
+
+.show-flex-col {
+  display: flex;
+  flex-direction: column;
 }

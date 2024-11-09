@@ -1,17 +1,20 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Outlet, Link, useNavigate } from "react-router-dom";
-import Nav from "../components/Nav";
-import { useEffect, useState } from "react";
+import { useEffect, useState, MouseEvent } from "react";
 import { paths } from "../routes";
 
 import '../css/index.css'
+
+import Nav from "../components/Nav";
+import SocialLinkable from "../components/SocialLinkeable";
 
 export default function MainTemplate() {
 
   const navigate = useNavigate()
 
   const [ isHidden, setIsHidden ] = useState(true)
-  const handleClickOnMenu = () => {
+  const handleClickOnMenu = (event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
+    event.preventDefault()
     setIsHidden(!isHidden)
   }
 
@@ -26,14 +29,17 @@ export default function MainTemplate() {
     <header id="navigation">
       <h1>Aurora Alcor</h1>
 
-      <img 
-        src="../../public/menu.png"
-        alt="Icono de menú de navegación"
-        onClick={ handleClickOnMenu }
-      />
+      <button
+        onClick={ (e) => handleClickOnMenu(e) }
+      >
+        <img 
+          alt="Icono de menú de navegación"
+          src="../../public/menu.png"
+        />
+      </button>
 
           
-      <section className={`menu ${ isHidden? '':'show-flex' }`}>
+      <section id="menu" className={`${ isHidden? 'hide':'show-flex-col' }`}>
         <h2>Menú Principal</h2>
 
         <Nav>
@@ -42,6 +48,12 @@ export default function MainTemplate() {
           <Link to={ paths.prioridad }>Mi Prioridad</Link>
           <Link to={ paths.recursos }>Recursos</Link>
           <Link to={ paths.contacto }>Contacto</Link>
+        </Nav>
+
+        <Nav>
+          <SocialLinkable web="instagram" username="auroraalcor" />
+          <SocialLinkable web="facebook" username="brenda.sul.75" />
+          <SocialLinkable web="linkedin" username="ernestomg" />
         </Nav>
       </section>
     </header>

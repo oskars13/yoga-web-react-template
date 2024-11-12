@@ -6,13 +6,13 @@ type Props = {
 }
 
 export default function SocialLinkable ({ web, username }: Props){
-  const path = web+'.com/'
+  const path = web === 'linkedin'? web + '.com/in/' : web + '.com/'
   return (
     <a 
-      href={`https://www.${ web === 'linkedin'? path + 'in/':path }${ username }/`}
+      href={`https://www.${ path }${ username }/`}
       target="__blank"
     >
-      <img src={`../../public/social/${ web }.png`} alt={`Logo de Acceso a ${ web } (usuario ${username})`} />
+      <img src={`../../public/social/${ web }.png`} alt={`Icono de acceso a ${ web } (usuario ${username})`} />
     </a>
   )
 }

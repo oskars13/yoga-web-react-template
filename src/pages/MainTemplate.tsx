@@ -4,9 +4,11 @@ import { useEffect, useState, MouseEvent } from "react";
 import { paths } from "../routes";
 
 import '../css/index.css'
+import '../css/Header.css'
 
 import Nav from "../components/Nav";
 import SocialLinkable from "../components/SocialLinkeable";
+import ImageButton from "../components/ImageButton";
 
 export default function MainTemplate() {
 
@@ -29,14 +31,11 @@ export default function MainTemplate() {
     <header id="navigation">
       <h1>Aurora Alcor</h1>
 
-      <button
+      <ImageButton 
+        image="../../public/menu.png"
         onClick={ (e) => handleClickOnMenu(e) }
-      >
-        <img 
-          alt="Icono de menú de navegación"
-          src="../../public/menu.png"
-        />
-      </button>
+        altText="Icono de Menú de Navegación"
+      />
 
           
       <section id="menu" className={`${ isHidden? 'hide':'show-flex-col' }`}>

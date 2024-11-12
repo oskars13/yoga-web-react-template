@@ -1,0 +1,36 @@
+
+h1 {
+  font-family: var(--font-playwrite);
+  
+  align-self: center;
+  padding-left: .5rem;
+}
+
+
+#navigation {
+  display: grid;
+  width: 100%;
+  height: 10dvh;
+
+  padding: 0 .5rem;
+
+  grid-template-columns: 80% auto;
+  position: fixed;
+
+  z-index: 100;
+}
+
+#navigation button {
+  border: none;
+}
+
+#navigation button img{
+  width: 70%;
+  object-fit: cover;
+}
+
+#menu {
+  position: absolute;
+  height: 100dvh;
+  width: 90dvw;
+}

@@ -1,0 +1,52 @@
+
+:root{
+  --slides-height: 150px;
+}
+
+
+#slider-1{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 400px;
+}
+
+.slider-slides {
+  height: 100%;
+  width: 100%;
+
+  overflow: scroll;
+
+  scroll-snap-type: x mandatory;
+  scroll-snap-align: center;
+  scroll-behavior: smooth;
+  position: relative;
+
+  display: flex;
+}
+.slider-slides::-webkit-scrollbar {
+  display: none;
+}
+
+.slider-x-slide {
+  width: 100%;
+  height: 100%;
+
+  flex: 0 0 100%;
+
+}
+
+.slider-navigator {
+  position: relative;
+
+  background-color: #0005;
+  display: flex;
+
+  align-items: center;
+  justify-content: space-around;
+}
+
+.slider-navigator a {
+  font-size: 20pt;
+}
+

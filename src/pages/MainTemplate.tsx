@@ -15,7 +15,7 @@ export default function MainTemplate() {
   const navigate = useNavigate()
 
   const [ isHidden, setIsHidden ] = useState(true)
-  const handleClickOnMenu = (event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
+  const handleClickOnMenu = (event: MouseEvent<HTMLElement, globalThis.MouseEvent>) => {
     event.preventDefault()
     setIsHidden(!isHidden)
   }
@@ -38,23 +38,30 @@ export default function MainTemplate() {
       />
 
           
-      <section id="menu" className={`${ isHidden? 'hide':'show-flex-col' }`}>
-        <h2>Menú Principal</h2>
+      <section id="menu" className={`${ isHidden? 'hide':'show-menu' }`}>
+        <section className="menu-visible">
+          <h2>Menú Principal</h2>
 
-        <Nav>
-          <Link to={ paths.home }>Inicio</Link>
-          <Link to={ paths.quienSoy }>Quien Soy</Link>
-          <Link to={ paths.prioridad }>Mi Prioridad</Link>
-          <Link to={ paths.recursos }>Recursos</Link>
-          <Link to={ paths.contacto }>Contacto</Link>
-        </Nav>
+          <Nav>
+            <Link to={ paths.home }>Inicio</Link>
+            <Link to={ paths.quienSoy }>Quien Soy</Link>
+            <Link to={ paths.prioridad }>Mi Prioridad</Link>
+            <Link to={ paths.recursos }>Recursos</Link>
+            <Link to={ paths.contacto }>Contacto</Link>
+          </Nav>
 
-        <Nav>
-          <SocialLinkable web="instagram" username="auroraalcor" />
-          <SocialLinkable web="facebook" username="brenda.sul.75" />
-          <SocialLinkable web="linkedin" username="ernestomg" />
-        </Nav>
+          <Nav>
+            <SocialLinkable web="instagram" username="auroraalcor" />
+            <SocialLinkable web="facebook" username="brenda.sul.75" />
+            <SocialLinkable web="linkedin" username="ernestomg" />
+          </Nav>
+        </section>
+
+        <div 
+          className="menu-exit"
+          onClick={ e => handleClickOnMenu(e) }></div>
       </section>
+
     </header>
 
     <main>

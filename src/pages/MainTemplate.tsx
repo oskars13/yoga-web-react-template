@@ -9,6 +9,7 @@ import '../css/Header.css'
 import Nav from "../components/Nav";
 import SocialLinkable from "../components/SocialLinkeable";
 import ImageButton from "../components/ImageButton";
+import Footer from "../components/Footer";
 
 export default function MainTemplate() {
 
@@ -29,10 +30,10 @@ export default function MainTemplate() {
   return (
   <>
     <header id="navigation">
-      <h1>Aurora Alcor</h1>
+      <h1>Irene Alcor</h1>
 
       <ImageButton 
-        image="../../public/menu.png"
+        image="/menu.png"
         onClick={ (e) => handleClickOnMenu(e) }
         altText="Icono de Menú de Navegación"
       />
@@ -68,7 +69,7 @@ export default function MainTemplate() {
       <Outlet />
     </main>
 
-    <footer>footer</footer>
+    <Footer />
   </>
   )
 }

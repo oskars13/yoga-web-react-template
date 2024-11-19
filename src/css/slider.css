@@ -1,52 +1,89 @@
 
-:root{
-  --slides-height: 150px;
+.slider {
+  width: 90dvw;
+  max-width: 900px;
+  height: 400px;
+
+  margin: 1rem auto;
+  direction: ltr;
 }
 
+.slides {
+  width: 300%;
+  height: 85%;
 
-#slider-1{
+  display: flex;
+  flex-flow: row nowrap;
+  flex: 0 0 100%;
+  gap: 2rem;
+
+  padding: 1rem;
+  margin: auto;
+
+  transition: all .5s ease-in-out;
+}
+
+.slide {
+  width: 100%;
+  border-radius: 16px;
+  background: #ca9a51;
+  box-shadow:  7px 7px 14px #7b5e31;
+
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 400px;
+  align-items: center;
+  justify-content: center;
+
+  margin: 1rem;
 }
 
-.slider-slides {
-  height: 100%;
-  width: 100%;
-
-  overflow: scroll;
-
-  scroll-snap-type: x mandatory;
-  scroll-snap-align: center;
-  scroll-behavior: smooth;
-  position: relative;
-
+.buttons {
   display: flex;
-}
-.slider-slides::-webkit-scrollbar {
-  display: none;
-}
+  gap: 2rem;
 
-.slider-x-slide {
-  width: 100%;
-  height: 100%;
-
-  flex: 0 0 100%;
-
-}
-
-.slider-navigator {
-  position: relative;
-
-  background-color: #0005;
-  display: flex;
+  max-width: 600px;
+  margin: auto;
 
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+
+  height: 15%;
+
+  border-radius: 10px;
+  background: #ca9a51;
+  box-shadow: inset 7px 7px 14px #7b5e31,
+              inset -7px -7px 14px #ffd671
 }
 
-.slider-navigator a {
-  font-size: 20pt;
+.radio-slider {
+  width: 27px;
+  height: 27px;
+
+  border-radius: 150px;
+  background: #ca9a51;
+  box-shadow:  2px 2px 6px #513e20,
+              -2px -2px 6px #ffd16d;
+
+  transition: background-color .1s ease-in-out, scale .3s ease-in-out;
+  -webkit-tap-highlight-color: transparent;
+
+  cursor: pointer;
+  user-select: none;
 }
 
+.radio-slider:hover {
+  scale: 110%;
+}
+
+.active-radio {
+  background-color: #fff5;
+}
+
+@media (min-width: 700px){
+  .slider {
+    mask-image: linear-gradient(to right, transparent, #fff 2% 98%, transparent );
+  }
+  .slides {
+    transition: all .7s ease-in-out;
+  }
+}

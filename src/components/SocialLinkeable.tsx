@@ -12,7 +12,7 @@ export default function SocialLinkable ({ web, username }: Props){
       href={`https://www.${ path }${ username }/`}
       target="__blank"
     >
-      <img src={`../../public/social/${ web }.png`} alt={`Icono de acceso a ${ web } (usuario ${username})`} />
+      <img src={`/social/${ web }.png`} alt={`Icono de acceso a ${ web } (usuario ${username})`} />
     </a>
   )
 }

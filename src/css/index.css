@@ -29,8 +29,11 @@ a {
   text-decoration: none;
 }
 
-h1{
+h1, h2, h3, h4, h5, h6, a, p, input::placeholder, input{
   color: var(--smoked-white);
+}
+hr {
+  background-color: var(--smoked-white);
 }
 
 html{
@@ -41,6 +44,11 @@ main, footer {
   position: relative;
   top: 10dvh;
   overflow: hidden;
+}
+
+main {
+  max-width: 1100px;
+  margin: auto;
 }
 
 #navigation {
@@ -59,11 +67,4 @@ main, footer {
   background-color: #13131355;
 }
 
-.hide {
-  display: none
-}
 
-.show-flex-col {
-  display: flex;
-  flex-direction: column;
-}

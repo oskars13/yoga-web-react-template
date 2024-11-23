@@ -6,13 +6,6 @@ footer {
 
   display: flex;
   flex-direction: column;
-
-  border-radius: 5px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  background: #ca9a51;
-  box-shadow: inset 6px 6px 5px #7d5f32,
-              inset -6px -6px 5px #ffd570;
 }
 
 footer:last-child{

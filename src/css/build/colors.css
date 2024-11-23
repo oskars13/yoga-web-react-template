@@ -1,0 +1,11 @@
+.slider-neu .slides .slide {
+  border-radius: 16px;
+  background: rgb(202, 154, 81);
+  box-shadow: 3px 3px 10px rgb(104, 73, 33), -3px -3px 10px rgb(252, 208, 96);
+}
+
+.slider-neu .buttons {
+  border-radius: 7px;
+  background: rgb(202, 154, 81);
+  box-shadow: 3px 3px 10px rgb(104, 73, 33), -3px -3px 10px rgb(252, 208, 96);
+}/*# sourceMappingURL=colors.css.map */

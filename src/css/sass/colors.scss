@@ -1,0 +1,55 @@
+
+
+
+// >>> RGB values for colors 
+// >> BG 0 RGB 
+
+$rgb-bg-0: rgb(202, 154, 81);
+$rgb-bg-1: rgb(187, 124, 28);
+
+
+
+
+@function neu-shadow( $fade, $illumination, $scale, $position ){
+  $x-distance: 5px + ($scale);
+  $y-distance: 5px + ($scale);
+
+
+  $color: $illumination;
+
+  @if ($illumination == 'light'){ 
+    $color: rgb(252, 208, 96);
+    $x-distance: calc($x-distance - ($x-distance * 2));
+    $y-distance: calc($y-distance - ($y-distance * 2));
+  }
+  @else { $color: rgb(104, 73, 33) }
+
+  @if ($position == inset){ @return $position $x-distance $y-distance $fade $color; }
+  @else { @return $x-distance $y-distance $fade $color }
+}
+
+@mixin neumorphism( $scale, $fade, $bd-radius ){
+  border-radius: $bd-radius;
+  background: $rgb-bg-0;
+  box-shadow: neu-shadow( $fade, 'dark', $scale, none ), 
+              neu-shadow( $fade, 'light', $scale, none);
+}
+
+
+// > NEUMORPHISM 
+.slider-neu .slides .slide {
+  @include neumorphism( -2px, 10px, 16px )
+}
+
+.slider-neu .buttons {
+  @include neumorphism( -2px, 10px, 7px )
+}
+
+// footer {
+//   border-radius: 5px;
+//   border-bottom-left-radius: 0;
+//   border-bottom-right-radius: 0;
+//   background: $rgb-bg-0;
+//   box-shadow: $shadow-top-left-inset-bg-0,
+//               $shadow-bottom-right-inset-bg-0
+// }

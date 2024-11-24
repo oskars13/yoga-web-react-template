@@ -3,14 +3,6 @@
 :root {
   --font-raleway: "Raleway", sans-serif;
   --font-playwrite: "Playwrite HU", cursive;
-
-  /* Colors for BG */
-  --background-color-1: #bb7c1c;
-  --background-color-0: #ca9a51;
-
-  /* Text colors */
-  --smoked-white: #f5f5f5;
-
 }
 
 * {
@@ -29,17 +21,6 @@ a {
   text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6, a, p, input::placeholder, input{
-  color: var(--smoked-white);
-}
-hr {
-  background-color: var(--smoked-white);
-}
-
-html{
-  color-scheme: light;
-}
-
 main, footer {
   position: relative;
   top: 10dvh;
@@ -50,21 +31,3 @@ main {
   max-width: 1100px;
   margin: auto;
 }
-
-#navigation {
-  background-color: var(--background-color-0);
-}
-
-#navigation button {
-  background-color: var(--background-color-0);
-}
-
-#menu section {
-  background-color: var(--background-color-0);
-}
-
-#menu div {
-  background-color: #13131355;
-}
-
-

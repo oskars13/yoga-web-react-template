@@ -64,10 +64,6 @@ footer hr {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  border-radius: 5px;
-  background: linear-gradient(to bottom right, #eec07a, #b4915d);
-  box-shadow:  5px 5px 12px #69502a;
 }
 
 .footer-nav a img {
@@ -93,13 +89,8 @@ footer form input {
 
   border: none;
 
-  border-radius: 7px;
-  background: #ffffff88;
-  box-shadow:  3px 3px 6px #5d4725;
-
   font-size: 13pt;
   font-weight: 700;
-  color: #5d4725;
   letter-spacing: 1px;
 
   -webkit-tap-highlight-color: transparent;
@@ -108,15 +99,9 @@ footer form input {
 footer form input:focus {
   border: none;
   outline: none;
-  background: #fff5;
-}
-
-footer form input::selection {
-  background: #fff3;
 }
 
 footer form input::placeholder {
-  color: #5d4725;
   font-weight: 500;
   font-size: 13pt;
 }
@@ -129,11 +114,4 @@ footer form input::placeholder {
 
   font-size: 20pt;
   font-weight: 800;
-
-  border-radius: 4px;
-  background: linear-gradient(to bottom right, #fbc677, #b4915d);
-  box-shadow:  3px 3px 6px #5d4725;
-  -webkit-tap-highlight-color: #fff2;
-
-  color: #ffffff;
 }

@@ -4,10 +4,9 @@ import '../../css/Slider.css'
 type Props = {
   name: string
   children: ReactNode
-  neumorphism?: boolean
 }
 
-export default function Slider({ name, children, neumorphism }: Props){
+export default function Slider({ name, children }: Props){
 
   const radioClassName = 'radio-slider '+name
 
@@ -33,7 +32,7 @@ export default function Slider({ name, children, neumorphism }: Props){
 
   return (
     <section 
-      className={ `slider ${ (neumorphism? 'slider-neu ':'') }`} 
+      className='slider'
       id={ name }>
       <div className={'slides ' + name }>
         { children }

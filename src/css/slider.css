@@ -2,10 +2,12 @@
 .slider {
   width: 90dvw;
   max-width: 900px;
-  height: 400px;
+  height: 450px;
 
-  margin: 1rem auto;
+  margin: 2rem auto;
+  padding: 10% 0;
   direction: ltr;
+  overflow: hidden;
 }
 
 .slides {
@@ -45,18 +47,11 @@
   justify-content: center;
 
   height: 15%;
-
-  
 }
 
 .radio-slider {
   width: 27px;
   height: 27px;
-
-  border-radius: 150px;
-  background: #ca9a51;
-  box-shadow:  2px 2px 6px #513e20,
-              -2px -2px 6px #ffd16d;
 
   transition: background-color .1s ease-in-out, scale .3s ease-in-out;
   -webkit-tap-highlight-color: transparent;
@@ -69,14 +64,9 @@
   scale: 95%;
 }
 
-.active-radio {
-  background-color: #fff5;
-}
 
 @media (min-width: 700px){
-  .slider {
-    mask-image: linear-gradient(to right, transparent, #fff 2% 98%, transparent );
-  }
+  .slider{ padding: 1rem 0; }
   .slides {
     transition: all .7s ease-in-out;
   }

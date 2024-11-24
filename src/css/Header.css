@@ -1,7 +1,6 @@
 
 
 h1 {
-  font-family: var(--font-playwrite);
   margin-left: 1rem;
   
   align-self: center;
@@ -24,8 +23,6 @@ h1 {
   position: fixed;
 
   z-index: 100;
-
-  box-shadow: 0px 2px 10px -5px black;
 }
 
 #navigation button {
@@ -50,7 +47,6 @@ h1 {
 }
 
 .menu-visible {
-  box-shadow: 1px 0 10px 1px;
   transform: translateX(0%);
 }
 

@@ -2,54 +2,65 @@
 
 
 // >>> RGB values for colors 
-// >> BG 0 RGB 
+// >> BG RGB 
+// $rgb-bg: rgb(167, 193, 255); // >blue
+// $rgb-bg: rgb(255, 208, 167); // >orange
+// $rgb-bg: rgb(175, 218, 174); // >light green
 
-$rgb-bg-0: rgb(202, 154, 81);
-$rgb-bg-1: rgb(187, 124, 28);
-
-
-
-
-@function neu-shadow( $fade, $illumination, $scale, $position ){
-  $x-distance: 5px + ($scale);
-  $y-distance: 5px + ($scale);
+// $rgb-bg: #7A9E7E; // >dark green
+// $rgb-bg: #9D8EC7; // >lavender
+// $rgb-bg: #F7CAC9; // >rose quartz
+$rgb-bg: #B0C4DE; // >grey pearl
 
 
-  $color: $illumination;
 
-  @if ($illumination == 'light'){ 
-    $color: rgb(252, 208, 96);
-    $x-distance: calc($x-distance - ($x-distance * 2));
-    $y-distance: calc($y-distance - ($y-distance * 2));
+@mixin neo( $distance, $radius, $is-inset: false, $color: $rgb-bg ){
+  $inset: if( $is-inset, inset, null );
+
+  border-radius: $radius;
+  background: $color;
+  box-shadow: $inset $distance $distance ($distance*2) darken( desaturate($color, 10%), 15% ),
+              $inset (-$distance) (-$distance) ($distance*2) lighten( saturate($color, 30%), 15% );
+}
+
+@mixin neo-one-shadow( $x, $y, $radius, $is-inset: false, $light: false, $color: $rgb-bg ){
+  $inset: if( $is-inset, inset, null );
+  $blur: if( $x > $y, ($x * 2), ($y * 2));
+  $shadow-color: if( $light, lighten( saturate($color, 30%), 15% ), darken( desaturate($color, 10%), 15% ));
+
+  background: $color;
+  box-shadow: $inset $x $y $blur $shadow-color;
+  @content
+}
+
+#navigation {
+  @include neo-one-shadow( 0, 3px, 0, $color: #fff8 ){
+    backdrop-filter: blur(10px);
   }
-  @else { $color: rgb(104, 73, 33) }
-
-  @if ($position == inset){ @return $position $x-distance $y-distance $fade $color; }
-  @else { @return $x-distance $y-distance $fade $color }
 }
 
-@mixin neumorphism( $scale, $fade, $bd-radius ){
-  border-radius: $bd-radius;
-  background: $rgb-bg-0;
-  box-shadow: neu-shadow( $fade, 'dark', $scale, none ), 
-              neu-shadow( $fade, 'light', $scale, none);
+#navigation button {
+  background: transparent;
 }
 
-
-// > NEUMORPHISM 
-.slider-neu .slides .slide {
-  @include neumorphism( -2px, 10px, 16px )
+.slider {
+  @include neo( 5px, 16px, inset )
 }
 
-.slider-neu .buttons {
-  @include neumorphism( -2px, 10px, 7px )
+.slider .slides .slide {
+  @include neo( 5px, 16px )
 }
 
-// footer {
-//   border-radius: 5px;
-//   border-bottom-left-radius: 0;
-//   border-bottom-right-radius: 0;
-//   background: $rgb-bg-0;
-//   box-shadow: $shadow-top-left-inset-bg-0,
-//               $shadow-bottom-right-inset-bg-0
-// }
+.radio-slider {
+  @include neo( 3px, 50px );
+  -webkit-tap-highlight-color: transparent;
+}
+
+.active-radio {
+  @include neo( 2px, 50px, $color: darken($rgb-bg, 10%) );
+  scale: 100%;
+}
+
+footer {
+  @include neo( 5px, 5px, inset )
+}

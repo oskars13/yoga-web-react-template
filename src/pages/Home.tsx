@@ -8,7 +8,7 @@ export default function Home(){
 
   return (
     <>
-      <Slider name="main-slider" neumorphism >
+      <Slider name="main-slider" >
         <Slide 
           title="Sección 1"
           contents="Contenidos de la sección 1"

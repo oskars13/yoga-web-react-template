@@ -1,0 +1,27 @@
+@use '../colors';
+
+
+
+@mixin patch ( 
+  $radius,
+  $width,
+  $distance,
+  $intensity: 0,
+  $style: dashed,
+  $bg: fade-out(colors.$rgb-bg, .5),
+  $border: darken(colors.$rgb-bg, 40%)
+) {
+  background: $bg;
+
+  border: $width $style $border;
+  border-radius: $radius;
+}
+
+.slider .slide {
+  @include patch( 16px, 3px, 16px, -4px );
+}
+
+.slider .radio-slider {
+  @include patch( 50px, 1px, 10px, -2px, $style: solid )
+}
+

@@ -5,7 +5,6 @@ import { paths } from "../routes";
 
 import '../css/index.css'
 import '../css/Header.css'
-import '../css/build/colors.css'
 
 import Nav from "../components/Nav";
 import SocialLinkable from "../components/SocialLinkeable";

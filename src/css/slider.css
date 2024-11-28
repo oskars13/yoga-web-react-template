@@ -1,6 +1,6 @@
 
 .slider {
-  width: 90dvw;
+  width: 100dvw;
   max-width: 900px;
   height: 450px;
 
@@ -11,7 +11,6 @@
 }
 
 .slides {
-  width: 300%;
   height: 85%;
 
   display: flex;
@@ -22,7 +21,7 @@
   padding: 1rem;
   margin: auto;
 
-  transition: all .5s ease-in-out;
+  transition: all .8s ease-in-out;
 }
 
 .slide {
@@ -38,7 +37,7 @@
 
 .buttons {
   display: flex;
-  gap: 2rem;
+  gap: 3rem;
 
   max-width: 600px;
   margin: auto;
@@ -50,18 +49,14 @@
 }
 
 .radio-slider {
-  width: 27px;
-  height: 27px;
+  width: 15px;
+  height: 15px;
 
   transition: background-color .1s ease-in-out, scale .3s ease-in-out;
   -webkit-tap-highlight-color: transparent;
 
   cursor: pointer;
   user-select: none;
-}
-
-.radio-slider:hover {
-  scale: 95%;
 }
 
 

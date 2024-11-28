@@ -1,0 +1,36 @@
+
+@use '../colors';
+
+
+@function get-shadow-color ( $color: colors.$rgb-bg, $light: false ){
+  @if $light { @return lighten( saturate($color, 30%), 15% ) }
+  
+  @return darken( desaturate($color, 10%), 15% )
+}
+
+@mixin neo( $distance, $radius, $is-inset: false, $color: colors.$rgb-bg ){
+  $inset: if( $is-inset, inset, null );
+
+  border-radius: $radius;
+  background: $color;
+  box-shadow: $inset $distance $distance ($distance*2) get-shadow-color( $color, $light: false ),
+              $inset (-$distance) (-$distance) ($distance*2) get-shadow-color( $color, $light: true );
+}
+
+@mixin inner-section ( $distance, $radius, $intensity, $color: colors.$rgb-bg ) {
+  box-shadow: $distance $distance ($distance*1) $intensity get-shadow-color( $color, $light: false );
+  background: lighten($color, 40%);
+  border-radius: $radius;
+}
+
+.slider {
+  @include neo( 5px, 0, inset );
+
+  & .slide{
+    @include inner-section( 7px, 16px, -3px )
+  }
+
+  & .buttons .radio-slider {
+    @include inner-section( 3px, 50px, -1px )
+  }
+}

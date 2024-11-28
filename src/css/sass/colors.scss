@@ -1,66 +1,12 @@
 
 
-
 // >>> RGB values for colors 
 // >> BG RGB 
-// $rgb-bg: rgb(167, 193, 255); // >blue
+$rgb-bg: rgb(167, 193, 255); // >blue
 // $rgb-bg: rgb(255, 208, 167); // >orange
 // $rgb-bg: rgb(175, 218, 174); // >light green
 
 // $rgb-bg: #7A9E7E; // >dark green
 // $rgb-bg: #9D8EC7; // >lavender
 // $rgb-bg: #F7CAC9; // >rose quartz
-$rgb-bg: #B0C4DE; // >grey pearl
-
-
-
-@mixin neo( $distance, $radius, $is-inset: false, $color: $rgb-bg ){
-  $inset: if( $is-inset, inset, null );
-
-  border-radius: $radius;
-  background: $color;
-  box-shadow: $inset $distance $distance ($distance*2) darken( desaturate($color, 10%), 15% ),
-              $inset (-$distance) (-$distance) ($distance*2) lighten( saturate($color, 30%), 15% );
-}
-
-@mixin neo-one-shadow( $x, $y, $radius, $is-inset: false, $light: false, $color: $rgb-bg ){
-  $inset: if( $is-inset, inset, null );
-  $blur: if( $x > $y, ($x * 2), ($y * 2));
-  $shadow-color: if( $light, lighten( saturate($color, 30%), 15% ), darken( desaturate($color, 10%), 15% ));
-
-  background: $color;
-  box-shadow: $inset $x $y $blur $shadow-color;
-  @content
-}
-
-#navigation {
-  @include neo-one-shadow( 0, 3px, 0, $color: #fff8 ){
-    backdrop-filter: blur(10px);
-  }
-}
-
-#navigation button {
-  background: transparent;
-}
-
-.slider {
-  @include neo( 5px, 16px, inset )
-}
-
-.slider .slides .slide {
-  @include neo( 5px, 16px )
-}
-
-.radio-slider {
-  @include neo( 3px, 50px );
-  -webkit-tap-highlight-color: transparent;
-}
-
-.active-radio {
-  @include neo( 2px, 50px, $color: darken($rgb-bg, 10%) );
-  scale: 100%;
-}
-
-footer {
-  @include neo( 5px, 5px, inset )
-}
+// $rgb-bg: #B0C4DE; // >grey pearl

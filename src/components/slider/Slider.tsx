@@ -1,4 +1,4 @@
-import { ReactNode, MouseEvent, Children } from "react"
+import { ReactNode, MouseEvent, Children, useState } from "react"
 import '../../css/Slider.css'
 
 type Props = {
@@ -9,6 +9,9 @@ type Props = {
 export default function Slider({ name, children }: Props){
 
   const radioClassName = 'radio-slider '+name
+  const childrenCount = Children.count(children)
+  const slidesWidth = `${ childrenCount }00%`
+  const [ sliderPosition, setSliderPosition ] = useState('')
 
   const handleClick = (event: MouseEvent<HTMLDivElement, globalThis.MouseEvent>) => {
     event.preventDefault()
@@ -26,7 +29,7 @@ export default function Slider({ name, children }: Props){
 
     const slides = document.querySelector('.slides' + '.'+name)
     if (slides){
-      (slides as HTMLDivElement).style.transform = `translateX(calc(${ position }*-100%/3))`
+      setSliderPosition(`translateX(calc(${ position }*-100%/${ childrenCount }))`)
     }
   }
 
@@ -34,9 +37,14 @@ export default function Slider({ name, children }: Props){
     <section 
       className='slider'
       id={ name }>
-      <div className={'slides ' + name }>
-        { children }
-      </div>
+      <div 
+        className={'slides ' + name } 
+        style={{ 
+          width: slidesWidth,
+          transform: sliderPosition
+        }}
+      >{ children }</div>
+      
       <div className="buttons">
         {
           Children.map(children, (_child, index) => {
